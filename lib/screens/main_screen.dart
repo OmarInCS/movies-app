@@ -1,5 +1,6 @@
 
 import 'package:flutter/material.dart';
+import 'package:movies_app/screens/tabs/home/home_tab.dart';
 
 
 
@@ -15,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
 
 
   static const List<Widget> _widgetOptions = <Widget>[
-    Center(child: Text("Home")),
+    HomeTab(),
     Center(child: Text("Search")),
     Center(child: Text("Browse")),
     Center(child: Text("Watch List")),
