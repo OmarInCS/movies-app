@@ -39,8 +39,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
+      body: SafeArea(
         child: Center(
           child: _widgetOptions.elementAt(_selectedIndex),
         ),

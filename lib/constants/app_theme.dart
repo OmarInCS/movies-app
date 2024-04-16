@@ -5,12 +5,14 @@ const primaryLight = Color(0xFF0B121A);
 const backgroundLight = Color(0xFF28394B);
 const containersBackgroundLight = Color(0xFF516070);
 const onPrimaryLight = Color(0xFFD2E2F5);
+const onContainerLight = Color(0xFF9BA9B9);
 const onPrimarySelectedLight = Color(0xFFE1B70E);
 
 const primaryDark = Color(0xFF0B121A);
 const backgroundDark = Color(0xFF28394B);
 const containersBackgroundDark = Color(0xFF516070);
 const onPrimaryDark = Color(0xFFD2E2F5);
+const onContainerDark = Color(0xFF9BA9B9);
 const onPrimarySelectedDark = Color(0xFFE1B70E);
 
 final lightTheme = ThemeData(
