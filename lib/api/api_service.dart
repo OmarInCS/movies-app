@@ -135,4 +135,24 @@ class APIService {
   }
 
 
+  static Future<List<Movie>> getSearchedMovies(String query) async {
+    try {
+      final uri = Uri.https(
+          APIConstants.baseUrl,
+          APIConstants.searchEndpoint,
+          {
+            "language": "en-US",
+            "page": "1",
+            "query": query
+          }
+      );
+      final response = await http.get(uri, headers: {"Authorization": "Bearer ${APIConstants.accessToken}"});
+      final json = jsonDecode(response.body);
+      return [for(var o in json["results"]) Movie.fromJson(o)];
+    } catch (error) {
+      print(error);
+      rethrow;
+    }
+  }
+
 }

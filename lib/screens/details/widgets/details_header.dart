@@ -21,10 +21,11 @@ class _DetailsHeaderState extends State<DetailsHeader> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Expanded(
+        widget.movie.backdropPath == null ? const Placeholder()
+        : Expanded(
           child: widget.movie.backdrop != null ? Image.memory(widget.movie.backdrop!)
               : FutureBuilder(
-            future: APIService.getBackdropImage(widget.movie.backdropPath),
+            future: APIService.getBackdropImage(widget.movie.backdropPath!),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const LoadingIndicator();

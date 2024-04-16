@@ -9,6 +9,7 @@ class APIConstants {
   static const String upcomingEndpoint = '/3/movie/upcoming';
   static const String topRatedEndpoint = '/3/movie/top_rated';
   static const String similarEndpoint = '/3/movie/{movie_id}/similar';
+  static const String searchEndpoint = '/3/search/movie';
   static const String movieDetailsEndpoint = '/3/movie/{movie_id}';
   static const String backdropEndpoint = '/t/p/w300';
   static const String posterEndpoint = '/t/p/w154';

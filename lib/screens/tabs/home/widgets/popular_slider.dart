@@ -42,9 +42,10 @@ class _PopularSliderState extends State<PopularSlider> {
                 SizedBox(
                   height: double.infinity,
                   width: double.infinity,
-                  child: movie.backdrop != null ? Image.memory(movie.backdrop!)
+                  child: movie.backdropPath == null ? const Placeholder()
+                      : movie.backdrop != null ? Image.memory(movie.backdrop!)
                         : FutureBuilder(
-                      future: APIService.getBackdropImage(movie.backdropPath),
+                      future: APIService.getBackdropImage(movie.backdropPath!),
                       builder: (context, snapshot) {
                         if (snapshot.connectionState == ConnectionState.waiting) {
                           return const LoadingIndicator();

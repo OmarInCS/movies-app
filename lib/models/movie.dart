@@ -8,7 +8,7 @@ import 'dart:typed_data';
 
 class Movie {
   bool adult;
-  String backdropPath;
+  String? backdropPath;
   List<int> genreids;
   int id;
   String originallanguage;
