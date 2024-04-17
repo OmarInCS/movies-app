@@ -5,7 +5,7 @@ import 'package:movies_app/constants/app_theme.dart';
 import '../../../api/api_service.dart';
 import '../../../widgets/error_indicator.dart';
 import '../../../widgets/loading_indicator.dart';
-import 'widgets/serach_result_item.dart';
+import '../../../widgets/serach_result_item.dart';
 
 class SearchTab extends StatefulWidget {
   const SearchTab({Key? key}) : super(key: key);

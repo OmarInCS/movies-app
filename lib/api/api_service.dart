@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'dart:typed_data';
 
+import '../models/genre.dart';
 import '../models/movie.dart';
 import 'api_constants.dart';
 import 'package:http/http.dart' as http;
@@ -154,5 +155,44 @@ class APIService {
       rethrow;
     }
   }
+
+  static Future<List<Genre>> getGenres() async {
+    try {
+      final uri = Uri.https(
+          APIConstants.baseUrl,
+          APIConstants.genresEndpoint,
+          {
+            "language": "en-US",
+          }
+      );
+      final response = await http.get(uri, headers: {"Authorization": "Bearer ${APIConstants.accessToken}"});
+      final json = jsonDecode(response.body);
+      return [for(var o in json["genres"]) Genre.fromJson(o)];
+    } catch (error) {
+      print(error);
+      rethrow;
+    }
+  }
+
+  static Future<List<Movie>> getMoviesOfGenre(int genreId) async {
+    try {
+      final uri = Uri.https(
+          APIConstants.baseUrl,
+          APIConstants.discoverEndpoint,
+          {
+            "language": "en-US",
+            "page": "1",
+            "with_genres": "$genreId"
+          }
+      );
+      final response = await http.get(uri, headers: {"Authorization": "Bearer ${APIConstants.accessToken}"});
+      final json = jsonDecode(response.body);
+      return [for(var o in json["results"]) Movie.fromJson(o)];
+    } catch (error) {
+      print(error);
+      rethrow;
+    }
+  }
+
 
 }

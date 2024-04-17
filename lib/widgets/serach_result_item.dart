@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/constants/app_theme.dart';
 import 'package:movies_app/widgets/movie_rate.dart';
 
-import '../../../../api/api_service.dart';
-import '../../../../models/movie.dart';
-import '../../../../widgets/error_indicator.dart';
-import '../../../../widgets/loading_indicator.dart';
-import '../../../details/details_screen.dart';
+import '../api/api_service.dart';
+import '../models/movie.dart';
+import 'error_indicator.dart';
+import 'loading_indicator.dart';
+import '../screens/details/details_screen.dart';
 
 class SearchResultItem extends StatefulWidget {
   final Movie movie;
