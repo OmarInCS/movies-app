@@ -9,15 +9,15 @@ import 'error_indicator.dart';
 import 'loading_indicator.dart';
 import '../screens/details/details_screen.dart';
 
-class SearchResultItem extends StatefulWidget {
+class ListItem extends StatefulWidget {
   final Movie movie;
-  const SearchResultItem({required this.movie, Key? key}) : super(key: key);
+  const ListItem({required this.movie, Key? key}) : super(key: key);
 
   @override
-  State<SearchResultItem> createState() => _SearchResultItemState();
+  State<ListItem> createState() => _ListItemState();
 }
 
-class _SearchResultItemState extends State<SearchResultItem> {
+class _ListItemState extends State<ListItem> {
   @override
   Widget build(BuildContext context) {
     return InkWell(

@@ -15,7 +15,7 @@ class Movie {
   String originaltitle;
   String overview;
   double popularity;
-  String posterPath;
+  String? posterPath;
   String releasedate;
   String title;
   bool video;

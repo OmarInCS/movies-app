@@ -22,13 +22,13 @@ class _HomeTabState extends State<HomeTab> {
       // mainAxisSize: MainAxisSize.min,
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * 0.33,
+          height: MediaQuery.of(context).size.height * 0.25,
           width: double.infinity,
           child: PopularSlider()
         ),
         SizedBox(height: 16,),
         SizedBox(
-            height: MediaQuery.of(context).size.height * 0.25,
+            height: MediaQuery.of(context).size.height * 0.29,
             width: double.infinity,
             child: HorizontalSection(
               title: "New Releases",
@@ -40,7 +40,7 @@ class _HomeTabState extends State<HomeTab> {
         ),
         SizedBox(height: 16,),
         SizedBox(
-            height: MediaQuery.of(context).size.height * 0.25,
+            height: MediaQuery.of(context).size.height * 0.29,
             width: double.infinity,
             child: HorizontalSection(
               title: "Recommended",

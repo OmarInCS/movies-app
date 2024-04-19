@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:movies_app/screens/tabs/browse/browse_tab.dart';
 import 'package:movies_app/screens/tabs/home/home_tab.dart';
 import 'package:movies_app/screens/tabs/search/search_tab.dart';
+import 'package:movies_app/screens/tabs/watch_list/watch_list_tab.dart';
 
 
 
@@ -21,7 +22,7 @@ class _MainScreenState extends State<MainScreen> {
     HomeTab(),
     SearchTab(),
     BrowseTab(),
-    Center(child: Text("Watch List")),
+    WatchListTab(),
   ];
 
   void _onItemTapped(int index) {

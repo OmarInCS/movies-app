@@ -2,9 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:movies_app/constants/app_theme.dart';
 import 'package:movies_app/widgets/movie_rate.dart';
+import 'package:provider/provider.dart';
 
 import '../../../api/api_service.dart';
 import '../../../models/movie.dart';
+import '../../../providers/watch_list_provider.dart';
 import '../../../widgets/error_indicator.dart';
 import '../../../widgets/loading_indicator.dart';
 import '../../../widgets/poster.dart';
@@ -29,9 +31,24 @@ class _DetailsSectionState extends State<DetailsSection> {
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
             width: 154,
-            child: widget.movie.poster != null ? Poster(poster: Image.memory(widget.movie.poster!, fit: BoxFit.contain,))
+            child: widget.movie.backdropPath == null ? const Placeholder()
+                : widget.movie.poster != null
+                ? Poster(
+                    poster: Image.memory(widget.movie.poster!, fit: BoxFit.contain,),
+                    isInWatchList: context.watch<WatchListProvider>().isInWatchList(movieId: widget.movie.id),
+                    onBookmarkPressed: () {
+                      if(context.watch<WatchListProvider>().isInWatchList(movieId: widget.movie.id)) {
+                        context.watch<WatchListProvider>().deleteMovie(
+                            movieId: widget.movie.id);
+                      }
+                      else {
+                        context.watch<WatchListProvider>().addMovie(
+                            movie: widget.movie);
+                      }
+                    },
+                  )
                 : FutureBuilder(
-              future: APIService.getPosterImage(widget.movie.posterPath),
+              future: APIService.getPosterImage(widget.movie.posterPath!),
               builder: (context, snapshot) {
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const LoadingIndicator();
@@ -39,7 +56,20 @@ class _DetailsSectionState extends State<DetailsSection> {
                   return const ErrorIndicator();
                 }
                 widget.movie.poster = snapshot.data!;
-                return Poster(poster: Image.memory(widget.movie.poster!, fit: BoxFit.contain,));
+                return Poster(
+                  poster: Image.memory(widget.movie.poster!, fit: BoxFit.contain,),
+                  isInWatchList: context.watch<WatchListProvider>().isInWatchList(movieId: widget.movie.id),
+                  onBookmarkPressed: () {
+                    if(context.watch<WatchListProvider>().isInWatchList(movieId: widget.movie.id)) {
+                      context.watch<WatchListProvider>().deleteMovie(
+                          movieId: widget.movie.id);
+                    }
+                    else {
+                      context.watch<WatchListProvider>().addMovie(
+                          movie: widget.movie);
+                    }
+                  },
+                );
               },
             ),
           ),

@@ -48,13 +48,13 @@ class _DetailsScreenState extends State<DetailsScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.33,
+                  height: MediaQuery.of(context).size.height * 0.25,
                   width: double.infinity,
                   child: DetailsHeader(movie: movie,)
               ),
               SizedBox(height: 16,),
               SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.25,
+                  height: MediaQuery.of(context).size.height * 0.29,
                   width: double.infinity,
                   child: DetailsSection(
                     movie: movie,
@@ -62,7 +62,7 @@ class _DetailsScreenState extends State<DetailsScreen> {
               ),
               SizedBox(height: 16,),
               SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.25,
+                  height: MediaQuery.of(context).size.height * 0.29,
                   width: double.infinity,
                   child: HorizontalSection(
                     title: "More Like This",

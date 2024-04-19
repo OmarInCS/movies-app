@@ -9,7 +9,10 @@ class PosterWithFooter extends StatefulWidget {
   final double voteAverage;
   final String title;
   final String releaseDate;
-  const PosterWithFooter({required this.poster, required this.voteAverage, required this.title, required this.releaseDate, Key? key}) : super(key: key);
+  final void Function() onBookmarkPressed;
+  final bool isInWatchList;
+
+  const PosterWithFooter({required this.poster, required this.voteAverage, required this.title, required this.releaseDate, required this.onBookmarkPressed, required this.isInWatchList, Key? key}) : super(key: key);
 
   @override
   State<PosterWithFooter> createState() => _PosterWithFooterState();
@@ -47,13 +50,11 @@ class _PosterWithFooterState extends State<PosterWithFooter> {
             child: IconButton(
               padding: EdgeInsets.all(0),
               icon: Icon(
-                Icons.bookmark_add_sharp,
-                color: containersBackgroundDark,
+                widget.isInWatchList ?  Icons.bookmark_added_sharp : Icons.bookmark_add_sharp,
+                color: widget.isInWatchList ? onPrimarySelectedDark : containersBackgroundDark,
                 size: 30,
               ),
-              onPressed: () {
-
-              },
+              onPressed: widget.onBookmarkPressed,
             ),
           ),
           Positioned(

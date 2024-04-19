@@ -7,7 +7,7 @@ import '../../constants/app_theme.dart';
 import '../../models/genre.dart';
 import '../../widgets/error_indicator.dart';
 import '../../widgets/loading_indicator.dart';
-import '../../widgets/serach_result_item.dart';
+import '../../widgets/list_item.dart';
 
 class GenreMovies extends StatefulWidget {
   final Genre genre;
@@ -46,7 +46,7 @@ class _GenreMoviesState extends State<GenreMovies> {
               return Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  SearchResultItem(
+                  ListItem(
                     movie: movies[index],
                   ),
                   Padding(
